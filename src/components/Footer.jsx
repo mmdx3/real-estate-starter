@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import  { houseList } from './HouseContext';
+import React from 'react';
+
 
 const Footer = () => {
 

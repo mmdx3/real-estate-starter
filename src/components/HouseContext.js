@@ -17,7 +17,7 @@ const HouseProvide = ({ children }) => {
         })
         const UniqueCountries = ['Location (any)', ...new Set(Allcountries)];
         setCountries(UniqueCountries);
-    }, []);
+    }, [houses]);
     useEffect(() => {
         const Allproperties = houses.map(house => {
             return house.type
@@ -26,7 +26,7 @@ const HouseProvide = ({ children }) => {
         const Uniqueproperties = ['property type (any)', ...new Set(Allproperties)];
         setProperties(Uniqueproperties);
 
-    }, []);
+    }, [houses]);
 
     const HandleClicke = () => {
         setLoading(true);

@@ -5,7 +5,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Menu } from '@headlessui/react';
 import { houseList } from './HouseContext';
 const PriceDropdown = () => {
-  const { Price, setPrice, Properties } = useContext(houseList);
+  const { Price, setPrice} = useContext(houseList);
   const [isOpen, setisOpen] = useState(false);
   const Prices = [
     {

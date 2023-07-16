@@ -1,13 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Banner from '../components/Banner';
 import Search from '../components/Search';
 import House from '../components/House';
-import houstList from '../components/HouseContext';
+
 
 
 const Home = () => {
-  // const houseDate = useContext(houstList);
-  
   return (
     <div>
       <Banner />
