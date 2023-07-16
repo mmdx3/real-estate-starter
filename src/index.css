@@ -2,23 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: vazir;
+  src: url('../public/font/vazir/Farsi-Digits/Vazir-Thin-FD.eot');
+  src: url('../public/font/vazir/Farsi-Digits/Vazir-Thin-FD.eot') format('embedded-opentype'),
+    url('../public/font/vazir/Farsi-Digits/Vazir-Thin-FD.woff') format('woff2'),
+    url('../public/font/vazir/Farsi-Digits/Vazir-Thin-FD.woff2') format('woff'),
+    url('../public/font/vazir/Farsi-Digits/Vazir-Thin-FD.ttf') format('truetype');
+  font-weight: normal;
+}
+
 @layer base {
   body {
-    @apply font-primary bg-gray-200;
+    font-family: vazir, sans-serif;
+    background: rgb(240, 240, 243);
   }
+
+  .container {
+    @apply px-0;
+  }
+
   .dropdown {
     @apply w-full lg:max-w-[296px] cursor-pointer;
   }
+
   .dropdown-btn {
     @apply flex h-[64px] items-center px-[18px] border rounded-lg;
   }
+
   .dropdown-icon-primary {
     @apply text-2xl mr-[18px] text-violet-700;
   }
+
   .dropdown-icon-secondary {
-    @apply text-2xl text-violet-700 ml-auto;
+    @apply text-2xl text-violet-700 justify-center items-center ml-auto text-center;
   }
+
   .dropdown-menu {
-    @apply px-6 py-8 text-[15px] space-y-6 shadow-md bg-white absolute w-full z-10 list-none rounded-b-lg;
+    @apply py-6 px-6 space-y-6 text-[15px] shadow-md absolute w-full rounded-b-lg bg-white z-50 list-none items-center container;
+  }
+
+  .shadow {
+    /* box-shadow: 0px 4px 8px  rgba(0, 0, 0 ,0.5); */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+
+  .shdow-app {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  }
+
+  .block {
+    display: block !important;
+  }
+
+  .none {
+    display: none;
+  }
+
+  .post-shadow {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+  }
+
+  .rtl {
+    direction: rtl;
+  }
+
+  .ltr {
+    direction: ltr;
   }
 }
