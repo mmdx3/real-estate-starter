@@ -13,7 +13,7 @@ const Banner = () => {
             تجزیه و تحلیل محصول و رشد قدرتمند، خود-خدمت برای کمک به شما در تبدیل تعامل و حفظ بیشتر</h4>
         </div>
         <div className='w-[50%] xl:block none'>
-          <img src={hoseBanner} alt="" />
+          <img src={hoseBanner} alt="" className='w-[395px] h-[396px]' />
         </div>
       </section >
     </>

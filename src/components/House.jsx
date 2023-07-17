@@ -21,14 +21,14 @@ const House = () => {
   }
   return (
     <>
-      <div className='container xl:px-20 mx-auto mt-4 mb-8 pb-5 grid grid-cols-1 xl:grid-cols-3 gap-8 justify-between max-w-sm xl:max-w-none md:grid-cols-2 lg:max-w-3xl' >
+      <div className='container xl:px-20 mx-auto mt-4 mb-8 pb-5 grid grid-cols-1 xl:grid-cols-3 gap-8 justify-between max-w-sm xl:max-w-none md:grid-cols-2 md:max-w-2xl lg:max-w-3xl' >
         {
           houses.map((house, index) => {
             return (
               <div key={index} className=' post-shadow felx-col  px-6 rounded-lg py-4 cursor-pointer active:scale-[0.9] transition-all duration-200 delay-0 ease-linear hover:scale-[1.05]'>
                 <Link to={`/PropertyDetails/${house.id}`} >
                   <div>
-                    <img src={house.image} alt='house' />
+                    <img src={house.image} alt='house' className='w-[304px] h-[304px] md:w-[256px] md:h-[256px] lg:w-[288px] lg:h-[288px]' />
                   </div>
                 </Link>
                 <div className='flex-col container pt-4 px-0'>

@@ -59,7 +59,7 @@ const PropertyDetails = () => {
             <div className='flex flex-row gap-3 items-center pt-4 lg:pt-0'>
               {filteredHouse && filteredHouse.agent && (
                 <div className='w-[80px] outline rounded-full p-1 outline-gray-400 outline-[2px] cursor-pointer'>
-                  <img src={filteredHouse.agent.image} alt="" />
+                  <img src={filteredHouse.agent.image} alt="" className='w-[auto]'/>
                 </div>
               )}
               {filteredHouse && filteredHouse.agent && (

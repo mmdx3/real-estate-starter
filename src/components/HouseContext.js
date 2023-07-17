@@ -1,4 +1,4 @@
-import { createContext,  useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { housesData } from "../data";
 
 export const houseList = createContext();
@@ -11,6 +11,13 @@ const HouseProvide = ({ children }) => {
     const [Properties, setProperties] = useState([]);
     const [Price, setPrice] = useState('price range (any)');
     const [Loading, setLoading] = useState(false);
+    const [loadingPage, setLoadingPage] = useState(true);
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            setLoadingPage(false);
+        }, 500);
+    });
+
     useEffect(() => {
         const Allcountries = houses.map(house => {
             return house.city
@@ -68,17 +75,17 @@ const HouseProvide = ({ children }) => {
                 return house.type === Property && PriceHouse >= minPrice && PriceHouse <= MaxPrice;
             }
         })
-        
+
         setTimeout(() => {
             setLoading(false)
-           return newHouses.length < 1 ? sethouseData([]) : 
-           sethouseData(newHouses) ;
+            return newHouses.length < 1 ? sethouseData([]) :
+                sethouseData(newHouses);
         }, 1000);
     };
 
     return <houseList.Provider value={{
         houses, sethouseData, country, setCountry, Countries, setCountries, Property, setProperty, Properties, setProperties
-        , Price, setPrice, Loading, setLoading, HandleClicke 
+        , Price, setPrice, Loading, setLoading, HandleClicke, loadingPage
     }}>{children}</houseList.Provider>
 
 }
