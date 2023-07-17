@@ -1,11 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { houseList } from '../components/HouseContext';
 import BedIcon from '@mui/icons-material/Bed';
 import BathtubIcon from '@mui/icons-material/Bathtub';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
+import Skeleton from 'react-loading-skeleton'
+import "react-loading-skeleton/dist/skeleton.css";
 
 const PropertyDetails = () => {
+  
   const { houses } = useContext(houseList)
   const { id } = useParams();
 
@@ -15,6 +18,13 @@ const PropertyDetails = () => {
     const filteredData = houses.filter(h => h.id === +(id));
     setFilteredHouse(filteredData[0]);
   }, [houses, id]);
+
+  const [Load_image, setLoadImage] = useState(false);
+
+
+  const handleImageLoad = () => {
+    setTimeout(() => setLoadImage(true) , 500)
+  };
 
   return (
     <div className='rtl container mx-auto lg:px-20 lg:pb-[100px]'>
@@ -31,10 +41,11 @@ const PropertyDetails = () => {
           </div>
         </div>
       </div>
-      <div className='flex flex-col lg:flex-row gap-6 pb-5'>
+      <div  className='flex flex-col lg:flex-row gap-6 pb-5'>
         <div className='flex flex-col gap-3 lg:w-2/3 '>
-          <div>
-            <img src={filteredHouse.imageLg} alt="" />
+          <div onLoad={handleImageLoad} className='w-[451px] h-[294px] sm:w-[608px] sm:h-[396px] md:w-[736px] md:h-[480px] lg:w-[560px] lg:h-[364px] xl:w-[700px] xl:h-[456px]'>
+          <img  src={filteredHouse.imageLg} alt="" className='none' />
+           {Load_image ? ( <img  src={filteredHouse.imageLg} alt="" /> ) : ( <Skeleton width={"100%"} height={'100%'} />)}
           </div>
           <div className='flex flex-row gap-5 '>
             <div className="flex flex-row gap-2">
@@ -58,8 +69,10 @@ const PropertyDetails = () => {
           <form className='px-6 lg:pt-8'>
             <div className='flex flex-row gap-3 items-center pt-4 lg:pt-0'>
               {filteredHouse && filteredHouse.agent && (
-                <div className='w-[80px] outline rounded-full p-1 outline-gray-400 outline-[2px] cursor-pointer'>
-                  <img src={filteredHouse.agent.image} alt="" className='w-[auto]'/>
+                <div onLoad={handleImageLoad} className='w-[80px] outline rounded-full p-1 outline-gray-400 outline-[2px] cursor-pointer  h-[80px] '>
+                  {Load_image ? (<img  src={filteredHouse.agent.image} alt="" className='w-[auto]' />) : (
+                    <Skeleton width={'100%'} height={'100%'} borderRadius={'50%'} className='pt-[12px]' />
+                  )}
                 </div>
               )}
               {filteredHouse && filteredHouse.agent && (
@@ -76,7 +89,7 @@ const PropertyDetails = () => {
               <input type="email" className='w-full border border-gray-400 rounded outline-none py-2 px-5' required placeholder='ایمیل  *' />
             </div>
             <div className='py-4'>
-              <input type="text" className='w-full border border-gray-400 rounded outline-none py-2 px-5' required  placeholder='شماره تلفن *' />
+              <input type="text" className='w-full border border-gray-400 rounded outline-none py-2 px-5' required placeholder='شماره تلفن *' />
             </div>
             <div className='py-4'>
               <textarea type="text" className='w-full border border-gray-400 rounded outline-none py-3 px-5 h-[150px] resize-none' required placeholder=' توضیحات *' ></textarea>

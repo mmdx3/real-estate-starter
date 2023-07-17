@@ -9,7 +9,7 @@ const Header = () => {
         </div>
         <div className='flex w-[140px] justify-between items-center ' >
           <div className='cursor-pointer'>Log in</div>
-          <div className='bg-violet-700  text-center items-center py-[6px] px-2 text-white font-bold rounded-md cursor-pointer hover:bg-violet-800 transition'>Sign up</div>
+          <div className='bg-violet-700  text-center items-center py-[6px] px-2 text-white font-bold rounded-md cursor-pointer hover:bg-violet-800 transition active:scale-[0.9]'>Sign up</div>
         </div>
       </header>
     </>

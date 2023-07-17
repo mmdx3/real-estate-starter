@@ -1,13 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import BedIcon from '@mui/icons-material/Bed';
 import BathtubIcon from '@mui/icons-material/Bathtub';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
 import { Link } from 'react-router-dom';
 import { houseList } from './HouseContext';
 import { ImSpinner2 } from 'react-icons/im';
+import Skeleton from 'react-loading-skeleton' ;
+import "react-loading-skeleton/dist/skeleton.css";
 const House = () => {
+  const [loadimage , setloadimage] = useState(false) ;
   const { houses } = useContext(houseList);
   const { Loading } = useContext(houseList);
+  const handleImageLoad = () => {
+    setTimeout(() => setloadimage(true) , 500)
+  };
+
   if (Loading) {
     return (
       <>
@@ -27,8 +34,9 @@ const House = () => {
             return (
               <div key={index} className=' post-shadow felx-col  px-6 rounded-lg py-4 cursor-pointer active:scale-[0.9] transition-all duration-200 delay-0 ease-linear hover:scale-[1.05]'>
                 <Link to={`/PropertyDetails/${house.id}`} >
-                  <div>
-                    <img src={house.image} alt='house' className='w-[304px] h-[304px] md:w-[256px] md:h-[256px] lg:w-[288px] lg:h-[288px]' />
+                  <div className="w-[304px] h-[304px] md:w-[256px] md:h-[256px] lg:w-[288px] lg:h-[288px]">
+                    <img onLoad={handleImageLoad} src={house.image} alt='house' className='w-[304px] h-[304px] md:w-[256px] md:h-[256px] lg:w-[288px] lg:h-[288px] none' />
+                    {loadimage ? ( <img onLoad={handleImageLoad} src={house.image} alt='house' className='w-[304px] h-[304px] md:w-[256px] md:h-[256px] lg:w-[288px] lg:h-[288px]' />) : ( <Skeleton width={"100%"} height={'100%'} />)}
                   </div>
                 </Link>
                 <div className='flex-col container pt-4 px-0'>

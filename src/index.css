@@ -23,7 +23,7 @@
   }
 
   .dropdown {
-    @apply w-full  cursor-pointer;
+    @apply w-full cursor-pointer;
   }
 
   .dropdown-btn {
@@ -70,6 +70,11 @@
   .ltr {
     direction: ltr;
   }
+
+  .rounded-l-t {
+    border-top-left-radius: 6rem;
+  }
+
 }
 
 .containerr {
@@ -123,7 +128,7 @@
 }
 
 .hide {
-  animation: hide 1s ease-in-out ;
+  animation: hide 1s ease-in-out;
 }
 
 @keyframes hide {

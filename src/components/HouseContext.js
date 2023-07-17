@@ -17,7 +17,7 @@ const HouseProvide = ({ children }) => {
             setLoadingPage(false);
         }, 500);
     });
-
+    // with 451 height 294 md 736 h 480 lg 560 h 364 xl 700 h 456 72 h 72
     useEffect(() => {
         const Allcountries = houses.map(house => {
             return house.city
