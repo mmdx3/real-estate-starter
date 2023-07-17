@@ -43,8 +43,8 @@ const PropertyDetails = () => {
       </div>
       <div  className='flex flex-col lg:flex-row gap-6 pb-5'>
         <div className='flex flex-col gap-3 lg:w-2/3 '>
-          <div onLoad={handleImageLoad} className='w-[451px] h-[294px] sm:w-[608px] sm:h-[396px] md:w-[736px] md:h-[480px] lg:w-[560px] lg:h-[364px] xl:w-[700px] xl:h-[456px]'>
-          <img  src={filteredHouse.imageLg} alt="" className='none' />
+          <div className=' w-[100%] h-[293px] max-w-320 sm:w-[608px] sm:h-[396px] md:w-[736px] md:h-[480px] lg:w-[560px] lg:h-[364px] xl:w-[700px] xl:h-[456px]'>
+          <img  onLoad={handleImageLoad}  src={filteredHouse.imageLg} alt="" className='none' />
            {Load_image ? ( <img  src={filteredHouse.imageLg} alt="" /> ) : ( <Skeleton width={"100%"} height={'100%'} />)}
           </div>
           <div className='flex flex-row gap-5 '>
